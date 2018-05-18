@@ -1,3 +1,24 @@
+
+## Acknowledgements
+
+- Collection of negative images is taken from 
+  https://github.com/dan-silver/haar-classifier-generator.git
+
+- Collection of positive images is taken from google image search.  author has no copyright on these images !
+
+- A huge thanks goes to Naotoshi Seo, who wrote the `mergevec.cpp` and
+`createsamples.cpp` tools and released them under the MIT licencse. His notes
+on OpenCV Haar training were a huge help. Thank you, Naotoshi!
+
+## References & Links:
+
+- [Naotoshi Seo - Tutorial: OpenCV haartraining (Rapid Object Detection With A Cascade of Boosted Classifiers Based on Haar-like Features)](http://note.sonots.com/SciSoftware/haartraining.html)
+- [Material for Naotoshi Seo's tutorial](https://code.google.com/p/tutorial-haartraining/)
+- [OpenCV Documentation - Cascade Classifier Training](http://docs.opencv.org/doc/user_guide/ug_traincascade.html)
+
+
+
+
 # Train your own OpenCV Haar classifier
 
 **Important**: This guide assumes you work with OpenCV 2.4.x. Since I no longer work with OpenCV, and don't have the time to keep up with changes and fixes, this guide is **unmaintained**. Pull requests will be merged of course, and if someone else wants commit access, feel free to ask!
@@ -5,7 +26,6 @@
 This repository aims to provide tools and information on training your own
 OpenCV Haar classifier.  Use it in conjunction with this blog post: [Train your own OpenCV Haar
 classifier](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html).
-
 
 
 ## Instructions
@@ -106,14 +126,4 @@ OpenCV, and save the results to `./classifier`:
         ./facedetect --cascade="~/finished_classifier.xml"
 
 
-## Acknowledgements
 
-A huge thanks goes to Naotoshi Seo, who wrote the `mergevec.cpp` and
-`createsamples.cpp` tools and released them under the MIT licencse. His notes
-on OpenCV Haar training were a huge help. Thank you, Naotoshi!
-
-## References & Links:
-
-- [Naotoshi Seo - Tutorial: OpenCV haartraining (Rapid Object Detection With A Cascade of Boosted Classifiers Based on Haar-like Features)](http://note.sonots.com/SciSoftware/haartraining.html)
-- [Material for Naotoshi Seo's tutorial](https://code.google.com/p/tutorial-haartraining/)
-- [OpenCV Documentation - Cascade Classifier Training](http://docs.opencv.org/doc/user_guide/ug_traincascade.html)
