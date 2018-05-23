@@ -1,1 +1,12 @@
-./positive_images/hqdefault.jpg
+./positive_images/download_1.jpeg
+./positive_images/download_9.jpeg
+./positive_images/download_8.jpeg
+./positive_images/images.jpeg
+./positive_images/download_4.jpeg
+./positive_images/download_11.jpeg
+./positive_images/download_6.jpeg
+./positive_images/download_5.jpeg
+./positive_images/download_2.jpeg
+./positive_images/download_3.jpeg
+./positive_images/download_7.jpeg
+./positive_images/download_10.jpeg

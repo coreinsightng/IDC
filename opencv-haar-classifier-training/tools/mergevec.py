@@ -129,7 +129,6 @@ def merge_vec_files(vec_directory, output_vec_file):
 	for f in files:
 		try:
 			with open(f, 'rb') as vecfile:	
-				content = ''.join(str(line) for line in vecfile.readlines())
 				val = struct.unpack('<iihh', content[:12])
 				num_images = val[0]
 				image_size = val[1]
@@ -143,7 +142,8 @@ def merge_vec_files(vec_directory, output_vec_file):
 			print('An IO error occured while processing the file: {0}'.format(f))
 			exception_response(e)
 
-	
+	print(total_num_images )
+	print(image_size)
 	# Iterate through the .vec files, writing their data (not the header) to the output file
 	# '<iihh' means 'little endian, int, int, short, short'
 	header = struct.pack('<iihh', total_num_images, image_size, 0, 0)
