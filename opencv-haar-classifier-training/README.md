@@ -2,7 +2,7 @@
 ## Acknowledgements
 
 - Collection of negative images is taken from 
-  https://github.com/dan-silver/haar-classifier-generator.git
+  https://github.com/JoakimSoderberg/haarcascade-negatives.git
 
 - Collection of positive images is taken from google image search.  author has no copyright on these images !
 
@@ -10,36 +10,33 @@
 `createsamples.cpp` tools and released them under the MIT licencse. His notes
 on OpenCV Haar training were a huge help. Thank you, Naotoshi!
 
+- Many thanks to Robin Mehner from "Code Robin" (https://coding-robin.de) whose post on haar classifier training was incredibly helpful.
+
+
 ## References & Links:
 
 - [Naotoshi Seo - Tutorial: OpenCV haartraining (Rapid Object Detection With A Cascade of Boosted Classifiers Based on Haar-like Features)](http://note.sonots.com/SciSoftware/haartraining.html)
 - [Material for Naotoshi Seo's tutorial](https://code.google.com/p/tutorial-haartraining/)
 - [OpenCV Documentation - Cascade Classifier Training](http://docs.opencv.org/doc/user_guide/ug_traincascade.html)
+- [TRAIN YOUR OWN OPENCV HAAR CLASSIFIER] (https://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html)
 
 
+## Commands to resize and change image formats quickly
+
+  -  mogrify -resize 50x50 abc.jpg   ( turn abc.jpg into 50x50 image)
+  -  mogrify -format jpg *.png       ( turn all png images into jpg)
 
 
-# Train your own OpenCV Haar classifier
+## Instructions to train a haar classifier
 
-**Important**: This guide assumes you work with OpenCV 2.4.x. Since I no longer work with OpenCV, and don't have the time to keep up with changes and fixes, this guide is **unmaintained**. Pull requests will be merged of course, and if someone else wants commit access, feel free to ask!
-
-This repository aims to provide tools and information on training your own
-OpenCV Haar classifier.  Use it in conjunction with this blog post: [Train your own OpenCV Haar
-classifier](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html).
-
-
-## Instructions
 
 1. Install OpenCV & get OpenCV source
-
-        brew tap homebrew/science
-        brew install --with-tbb opencv
-        wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.9/opencv-2.4.9.zip
-        unzip opencv-2.4.9.zip
+	
+	dnf install opencv opencv-devel
 
 2. Clone this repository
 
-        git clone https://github.com/mrnugget/opencv-haar-classifier-training
+        git clone https://github.com/coreinsightng/IDC/opencv-haar-classifier-training
 
 3. Put your positive images in the `./positive_images` folder and create a list
 of them:
@@ -60,9 +57,6 @@ to the `./samples` folder:
 6. Use `tools/mergevec.py` to merge the samples in `./samples` into one file:
 
         python ./tools/mergevec.py -v samples/ -o samples.vec
-
-   Note: If you get the error `struct.error: unpack requires a string argument of length 12`
-   then go into your **samples** directory and delete all files of length 0.
 
 7. Start training the classifier with `opencv_traincascade`, which comes with
 OpenCV, and save the results to `./classifier`:
@@ -115,15 +109,4 @@ OpenCV, and save the results to `./classifier`:
     Each row represents a feature that is being trained and contains some output about its HitRatio and FalseAlarm ratio. If a training stage only selects a few features (e.g. N = 2) then its possible something is wrong with your training data.
 
     At the end of each stage the classifier is saved to a file and the process can be stopped and restarted. This is useful if you are tweaking a machine/settings to optimize training speed.
-
-8. Wait until the process is finished (which takes a long time — a couple of days probably, depending on the computer you have and how big your images are).
-
-9. Use your finished classifier!
-
-        cd ~/opencv-2.4.9/samples/c
-        chmod +x build_all.sh
-        ./build_all.sh
-        ./facedetect --cascade="~/finished_classifier.xml"
-
-
 
