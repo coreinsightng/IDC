@@ -2,7 +2,7 @@
 ## Acknowledgements
 
 - Collection of negative images is taken from 
-  https://github.com/dan-silver/haar-classifier-generator.git
+  https://github.com/JoakimSoderberg/haarcascade-negatives.git
 
 - Collection of positive images is taken from google image search.  author has no copyright on these images !
 
